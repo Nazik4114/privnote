@@ -5,11 +5,6 @@ if(isset($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-$routesMap = [
-    'home' => 'HomeController',
-    'save' => 'SaveController',
-    'show' => 'ShowController',
-]; 
 
 if (array_key_exists($action, $routesMap)) {
     //$controllerPath = CONTROLLERS_PATH."/{$routesMap[$action]}.php";
@@ -20,6 +15,7 @@ if (array_key_exists($action, $routesMap)) {
         die("Undefined Controller {$controllerPath}");
     }
 }
+
 
 /*
 switch ($action) {
