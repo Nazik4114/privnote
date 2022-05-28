@@ -19,4 +19,17 @@ function dd($flag = true, ...$arguments) {
     }
     
     }
+
+    function route(array $routes, $action) {
+        if (array_key_exists($action, $routes)) {
+            $controllerPath = CONTROLLERS_PATH . "/" . $routes[$action] . '.php';
+    
+            $controllerPath = sprintf("%s/%s.php", CONTROLLERS_PATH, $routes[$action]);
+            if (is_readable($controllerPath)) {
+                require_once $controllerPath;
+            } else {
+                die("Undefined Controller {$controllerPath}");
+            }
+        }
+    }
 ?>
