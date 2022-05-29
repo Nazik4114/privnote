@@ -18,7 +18,15 @@
         Щоб зрозуміти, як працює Privnote, дивіться
         <a href="/info/about">про нас</a>. 
     </div>
-    <h2 class="hidden" id="err">Text is not valid</h2>
+    <?php 
+    if($flag_is_valid){
+    echo("<h2 class='hidden' id='err'>Text is not valid</h2>");
+    }
+    else{
+        echo("<h2 class='' id='err'>Text is not valid</h2>");
+    }
+    ?>
+    
     <form action="<?= "index.php?action=save" ?>" method="post" id="forma">
     <textarea id="note_raw" name="note"  rows="4" min="2" placeholder="Напишіть свою записку тут"></textarea>
 
