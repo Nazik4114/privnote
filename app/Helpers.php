@@ -53,7 +53,14 @@ function dd($flag = true, ...$arguments) {
         return json_encode($fileContent, JSON_UNESCAPED_SLASHES); ;
     }
     function Save_to_file($filePath , $fileContent){
+        if(file_exists(NOTES_PATH)){
       file_put_contents($filePath , $fileContent);
+        }
+        else{
+
+            mkdir(NOTES_PATH);
+            file_put_contents($filePath , $fileContent);
+        }
     }
     function Show_URL($hash){
         $show_url = BASE_URL . "?action=show&hash=".$hash;
