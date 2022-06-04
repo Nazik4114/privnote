@@ -7,8 +7,8 @@ define('NOTES_PATH', __DIR__."\\notes");
 define('HASH_SIZE',10);
 
 $routesMap = [
-    'home' => 'HomeController',
-    'save' => 'SaveController',
-    'show' => 'ShowController',
+    'home' => 'HomeController@Home',
+    'save' => 'SaveController@Save',
+    'show' => 'ShowController@Show',
 ]; 
 ?>
