@@ -18,7 +18,7 @@ function dd($flag = true, ...$arguments) {
     
     }
     
-    }
+}
 
     function route(array $routes, $action) {
         if (array_key_exists($action, $routes)) {
@@ -28,8 +28,8 @@ function dd($flag = true, ...$arguments) {
             if (is_readable($controllerPath)) {
                 require_once $controllerPath;
 
-                $ObjControler=new $controlerClass;
-                $ObjControler->$method();
+                $objControler=new $controlerClass;
+                $objControler->$method();
 
             } else {
                 die("Undefined Controller {$controllerPath}");
@@ -37,11 +37,11 @@ function dd($flag = true, ...$arguments) {
         }
     }
     
-function Generated_Hash(){
+function generated_Hash(){
     return  bin2hex(random_bytes(HASH_SIZE));
  }
 
- function Bild_Url_to_note($hash){
+ function bild_Url_to_note($hash){
      $fileName = "$hash.json";
      $filePath = NOTES_PATH . "/$fileName";
      return  $filePath;
@@ -56,35 +56,33 @@ function Generated_Hash(){
      ];
      return json_encode($fileContent, JSON_UNESCAPED_SLASHES); ;
  }
- function Save_to_file($filePath , $fileContent){
+ function save_to_file($filePath , $fileContent){
      if(file_exists(NOTES_PATH)){
    file_put_contents($filePath , $fileContent);
-     }
-     else{
+     } else{
 
          mkdir(NOTES_PATH);
          file_put_contents($filePath , $fileContent);
      }
  }
 
- function Validate_note($POST,&$flag){
-        if (!empty($POST)&&strlen($POST<=1000)){
-    $page = 'save';
-    $flag=true;
-    }
-    else{
-    $page = 'home';  
+ function validate_note($post,&$flag){
+        if (!empty($post)&&strlen($post<=1000)){
+                $page = 'save';
+                $flag=true;
+            } else{
+                $page = 'home';  
 
-    $flag=false;
+                $flag=false;
+            }
+            return $page;
     }
-    return $page;
-   }
 
-function Show_URL($hash){
+function show_URL($hash){
     $show_url = BASE_URL . "?action=show&hash=".$hash;
     return $show_url;
 }
-function DeleteFile($Path_file){
-    unlink($Path_file);
+function deleteFile($path_file){
+    unlink($path_file);
 }
 ?>
